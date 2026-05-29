@@ -1,0 +1,405 @@
+/* ===============================
+   RESET CSS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f8f3;
+    color: #2f3e2f;
+    line-height: 1.6;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.header {
+    width: 100%;
+    padding: 14px 8%;
+    background-color: #2e7d32;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    padding: 3px;
+}
+
+/* Menu */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 9px 17px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.navbar a.active {
+    background-color: #ffffff;
+    color: #2e7d32;
+}
+
+/* ===============================
+   BANNER TRANG SẢN PHẨM
+================================ */
+
+.page-banner {
+    min-height: 320px;
+    background:
+        linear-gradient(rgba(30, 60, 35, 0.65), rgba(30, 60, 35, 0.65)),
+        url("../assets/images/banner-greenhome.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 8%;
+}
+
+.page-banner-content {
+    max-width: 760px;
+}
+
+.page-banner h1 {
+    font-size: 44px;
+    margin-bottom: 14px;
+}
+
+.page-banner p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ===============================
+   SECTION TITLE
+================================ */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* ===============================
+   KHU VỰC TẤT CẢ SẢN PHẨM
+================================ */
+
+.all-products-section {
+    padding: 70px 8%;
+    background-color: #f6f8f3;
+}
+
+/* ===============================
+   THANH TÌM KIẾM VÀ LỌC
+================================ */
+
+.product-tools {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+}
+
+.product-tools input,
+.product-tools select {
+    padding: 13px 18px;
+    border: 1px solid #c8e6c9;
+    border-radius: 30px;
+    outline: none;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #2f3e2f;
+}
+
+.product-tools input {
+    width: 330px;
+}
+
+.product-tools select {
+    width: 220px;
+}
+
+.product-tools input:focus,
+.product-tools select:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+}
+
+/* ===============================
+   DANH SÁCH SẢN PHẨM
+================================ */
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+}
+
+/* ===============================
+   CARD SẢN PHẨM
+================================ */
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 18px 15px 8px;
+    font-size: 20px;
+    color: #2e7d32;
+}
+
+.product-category {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 18px;
+}
+
+.product-origin {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 18px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 18px;
+    min-height: 44px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d35400;
+    margin: 12px 0 18px;
+}
+
+.detail-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.detail-btn:hover {
+    background-color: #1b5e20;
+}
+
+/* ===============================
+   THÔNG BÁO KHÔNG CÓ SẢN PHẨM
+================================ */
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 70px 8%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.4fr 1fr;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+.footer-box h2 {
+    font-size: 38px;
+    font-family: Georgia, serif;
+    margin-bottom: 18px;
+}
+
+.footer-box h3 {
+    font-size: 24px;
+    font-family: Georgia, serif;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.footer-box p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #f5f5f5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 28px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8bc34a;
+    transform: translateY(-4px);
+}
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-banner h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .page-banner {
+        min-height: 270px;
+        padding: 35px 5%;
+    }
+
+    .page-banner h1 {
+        font-size: 31px;
+    }
+
+    .page-banner p {
+        font-size: 15px;
+    }
+
+    .all-products-section {
+        padding: 50px 5%;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .product-tools input,
+    .product-tools select {
+        width: 100%;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+}

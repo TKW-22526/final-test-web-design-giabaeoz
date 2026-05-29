@@ -1,0 +1,435 @@
+/* ===============================
+   RESET CSS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f8f3;
+    color: #2f3e2f;
+    line-height: 1.6;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.header {
+    width: 100%;
+    padding: 14px 8%;
+    background-color: #2e7d32;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    padding: 3px;
+}
+
+/* Menu */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 9px 17px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.navbar a.active {
+    background-color: #ffffff;
+    color: #2e7d32;
+}
+
+/* ===============================
+   BANNER LIÊN HỆ
+================================ */
+
+.contact-banner {
+    min-height: 300px;
+    background:
+        linear-gradient(rgba(30, 60, 35, 0.65), rgba(30, 60, 35, 0.65)),
+        url("../assets/images/banner-lienhe.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 8%;
+}
+
+.contact-banner-content {
+    max-width: 760px;
+}
+
+.contact-banner h1 {
+    font-size: 44px;
+    margin-bottom: 14px;
+}
+
+.contact-banner p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ===============================
+   SECTION TITLE
+================================ */
+
+.contact-section {
+    padding: 70px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* ===============================
+   KHUNG LIÊN HỆ
+================================ */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 35px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   THÔNG TIN CỬA HÀNG
+================================ */
+
+.contact-info {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 22px;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+    color: #2e7d32;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.info-icon {
+    width: 42px;
+    height: 42px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.info-item strong {
+    color: #2e7d32;
+    font-size: 16px;
+}
+
+.info-item p {
+    color: #555;
+    margin-top: 4px;
+}
+
+.contact-note {
+    margin-top: 25px;
+    background-color: #f6f8f3;
+    padding: 18px;
+    border-left: 5px solid #2e7d32;
+    border-radius: 12px;
+}
+
+.contact-note p {
+    color: #555;
+}
+
+/* ===============================
+   FORM LIÊN HỆ
+================================ */
+
+.contact-form-box {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 22px;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-box h3 {
+    color: #2e7d32;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    color: #2f3e2f;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #2f3e2f;
+    background-color: #ffffff;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+}
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 28px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1b5e20;
+}
+
+.form-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ===============================
+   MAP GIẢ LẬP
+================================ */
+
+.map-box {
+    max-width: 1150px;
+    margin: 40px auto 0;
+    background:
+        linear-gradient(rgba(46, 125, 50, 0.82), rgba(46, 125, 50, 0.82)),
+        url("../assets/images/banner-greenhome.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    border-radius: 22px;
+    padding: 45px 30px;
+    text-align: center;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
+}
+
+.map-box h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.map-box p {
+    font-size: 17px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 70px 8%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.4fr 1fr;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+.footer-box h2 {
+    font-size: 38px;
+    font-family: Georgia, serif;
+    margin-bottom: 18px;
+}
+
+.footer-box h3 {
+    font-size: 24px;
+    font-family: Georgia, serif;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.footer-box p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #f5f5f5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 28px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8bc34a;
+    transform: translateY(-4px);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-banner h1 {
+        font-size: 36px;
+    }
+
+    .contact-banner p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .contact-banner {
+        min-height: 260px;
+        padding: 35px 5%;
+    }
+
+    .contact-banner h1 {
+        font-size: 30px;
+    }
+
+    .contact-section {
+        padding: 50px 5%;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .contact-info,
+    .contact-form-box {
+        padding: 25px;
+    }
+
+    .info-item {
+        align-items: flex-start;
+    }
+}

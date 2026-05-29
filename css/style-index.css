@@ -1,0 +1,429 @@
+/* ===============================
+   RESET CSS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f8f3;
+    color: #2f3e2f;
+    line-height: 1.6;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+
+/* ===============================
+   HEADER XANH LÁ
+================================ */
+
+.header {
+    width: 100%;
+    padding: 14px 8%;
+    background-color: #2e7d32;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    padding: 3px;
+}
+
+/* Menu */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 9px 17px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.navbar a.active {
+    background-color: #ffffff;
+    color: #2e7d32;
+}
+/* ===============================
+   HERO / BANNER
+================================ */
+.hero {
+    min-height: 720px;
+    background:
+        linear-gradient(rgba(25, 55, 30, 0.58), rgba(25, 55, 30, 0.58)),
+        url("../assets/images/trang-chu-cua-hang-cay-canh.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 680px;
+    padding: 20px 0;
+}
+
+.hero-content h1 {
+    font-size: 58px;
+    line-height: 1.25;
+    margin-bottom: 22px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 34px;
+    max-width: 760px;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #3f7f35;
+    color: #ffffff;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2e5f27;
+}
+
+/* ===============================
+   SECTION CHUNG
+================================ */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    font-size: 20px;
+    color: #666;
+}
+
+/* ===============================
+   SẢN PHẨM NỔI BẬT
+================================ */
+
+.bestseller-section {
+    padding: 70px 8%;
+    background-color: #ffffff;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #f6f8f3;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 22px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 18px 15px 8px;
+    font-size: 20px;
+    color: #2e7d32;
+}
+
+.product-category {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+    margin: 8px 18px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d35400;
+    margin: 10px 0 18px;
+}
+
+.detail-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.detail-btn:hover {
+    background-color: #1b5e20;
+}
+.view-all-box {
+    text-align: center;
+    margin-top: 38px;
+}
+
+.view-all-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 13px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #1b5e20;
+    transform: translateY(-3px);
+}
+/* ===============================
+   LÝ DO CHỌN GREENHOME
+================================ */
+
+.reason-section {
+    padding: 55px 8%;
+    background-color: #ffffff;
+}
+
+.reason-title {
+    margin-bottom: 28px;
+}
+
+.reason-title h2 {
+    color: #2e7d32;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reason-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.reason-item {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 28px 28px 26px;
+    text-align: center;
+    min-height: 240px;
+    transition: 0.3s ease;
+}
+
+.reason-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.reason-icon {
+    font-size: 54px;
+    margin-bottom: 16px;
+}
+
+.reason-item h3 {
+    color: #111111;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.reason-item p {
+    color: #111111;
+    font-size: 15px;
+    line-height: 1.65;
+}
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 70px 8%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.4fr 1fr;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+.footer-box h2 {
+    font-size: 38px;
+    font-family: Georgia, serif;
+    margin-bottom: 18px;
+}
+
+.footer-box h3 {
+    font-size: 24px;
+    font-family: Georgia, serif;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.footer-box p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #f5f5f5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 28px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8bc34a;
+    transform: translateY(-4px);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 992px) {
+    .category-list,
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reason-list {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 450px;
+        text-align: center;
+        padding: 0 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .category-section,
+    .bestseller-section,
+    .reason-section {
+        padding: 50px 5%;
+    }
+
+    .category-list,
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+}
