@@ -68,11 +68,6 @@ if (bestsellerList) {
 // ===============================
 // 2. HIỂN THỊ TOÀN BỘ SẢN PHẨM Ở TRANG SAN-PHAM
 // ===============================
-
-// ===============================
-// 2. HIỂN THỊ TOÀN BỘ SẢN PHẨM Ở TRANG SAN-PHAM
-// ===============================
-
 const allProductsList = document.getElementById("all-products-list");
 const searchInput = document.getElementById("search-input");
 const categoryFilter = document.getElementById("category-filter");
@@ -474,45 +469,9 @@ if (contactForm) {
             return;
         }
 
-        formMessage.textContent = "Cảm ơn bạn đã liên hệ với GBGreen. Chúng tôi sẽ phản hồi sớm nhất!";
+        formMessage.textContent = "Cảm ơn bạn đã liên hệ với GB Garden. Chúng tôi sẽ phản hồi sớm nhất!";
         formMessage.style.color = "#2e7d32";
 
         contactForm.reset();
     });
 }
-// ===============================
-// HIỆU ỨNG TẢI TRANG VÀ CHUYỂN TRANG
-// ===============================
-
-// Khi trang tải xong thì thêm class để hiện trang mượt
-window.addEventListener("load", function () {
-    document.body.classList.add("page-loaded");
-});
-
-// Tạo hiệu ứng trước khi chuyển sang trang khác
-const pageLinks = document.querySelectorAll("a");
-
-pageLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
-        const href = link.getAttribute("href");
-
-        // Bỏ qua nếu link rỗng, link #, link ngoài website, hoặc mở tab mới
-        if (
-            !href ||
-            href.startsWith("#") ||
-            href.startsWith("http") ||
-            link.target === "_blank"
-        ) {
-            return;
-        }
-
-        event.preventDefault();
-
-        document.body.classList.remove("page-loaded");
-        document.body.classList.add("page-exit");
-
-        setTimeout(function () {
-            window.location.href = href;
-        }, 350);
-    });
-});
