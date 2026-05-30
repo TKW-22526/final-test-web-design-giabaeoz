@@ -319,9 +319,6 @@ body {
    FOOTER
 ================================ */
 
-/* ===============================
-   FOOTER
-================================ */
 
 .footer {
     background-color: #2e7d32;
@@ -431,5 +428,51 @@ body {
 
     .info-item {
         align-items: flex-start;
+    }
+}
+/* ===============================
+   HIỆU ỨNG TẢI TRANG VÀ CHUYỂN TRANG
+================================ */
+
+body {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Hiệu ứng xuất hiện nhẹ cho các khối chính */
+.hero,
+.page-banner,
+.about-banner,
+.contact-banner,
+.detail-section,
+.all-products-section,
+.about-section,
+.contact-section,
+.bestseller-section,
+.reason-section,
+.footer {
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

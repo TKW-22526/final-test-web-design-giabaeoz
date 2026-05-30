@@ -69,26 +69,38 @@ if (bestsellerList) {
 // 2. HIỂN THỊ TOÀN BỘ SẢN PHẨM Ở TRANG SAN-PHAM
 // ===============================
 
+// ===============================
+// 2. HIỂN THỊ TOÀN BỘ SẢN PHẨM Ở TRANG SAN-PHAM
+// ===============================
+
 const allProductsList = document.getElementById("all-products-list");
 const searchInput = document.getElementById("search-input");
 const categoryFilter = document.getElementById("category-filter");
+const editToggleBtn = document.getElementById("edit-toggle-btn");
+
+let isEditMode = false;
 
 if (allProductsList) {
+
     // Tạo danh mục tự động từ mảng products
-    const categories = [];
+    function renderCategoryOptions() {
+        categoryFilter.innerHTML = `<option value="all">Tất cả danh mục</option>`;
 
-    products.forEach(function(product) {
-        if (!categories.includes(product.category)) {
-            categories.push(product.category);
-        }
-    });
+        const categories = [];
 
-    categories.forEach(function(category) {
-        const option = document.createElement("option");
-        option.value = category;
-        option.textContent = category;
-        categoryFilter.appendChild(option);
-    });
+        products.forEach(function(product) {
+            if (!categories.includes(product.category)) {
+                categories.push(product.category);
+            }
+        });
+
+        categories.forEach(function(category) {
+            const option = document.createElement("option");
+            option.value = category;
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+    }
 
     // Hàm hiển thị danh sách sản phẩm
     function renderAllProducts(productArray) {
@@ -99,6 +111,11 @@ if (allProductsList) {
             emptyMessage.className = "empty-message";
             emptyMessage.textContent = "Không tìm thấy sản phẩm phù hợp.";
             allProductsList.appendChild(emptyMessage);
+
+            if (isEditMode) {
+                renderAddProductCard();
+            }
+
             return;
         }
 
@@ -142,8 +159,58 @@ if (allProductsList) {
             productCard.appendChild(productPrice);
             productCard.appendChild(detailButton);
 
+            // Nếu đang bật chế độ chỉnh sửa thì hiện nút Sửa và Xóa
+            if (isEditMode) {
+                const editActions = document.createElement("div");
+                editActions.className = "product-edit-actions";
+
+                const editBtn = document.createElement("button");
+                editBtn.className = "edit-product-btn";
+                editBtn.textContent = "Sửa";
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.className = "delete-product-btn";
+                deleteBtn.textContent = "Xóa";
+
+                editBtn.addEventListener("click", function() {
+                    editProduct(product.id);
+                });
+
+                deleteBtn.addEventListener("click", function() {
+                    deleteProduct(product.id);
+                });
+
+                editActions.appendChild(editBtn);
+                editActions.appendChild(deleteBtn);
+
+                productCard.appendChild(editActions);
+            }
+
             allProductsList.appendChild(productCard);
         });
+
+        // Nếu đang bật chỉnh sửa thì thêm ô Thêm sản phẩm ở cuối danh sách
+        if (isEditMode) {
+            renderAddProductCard();
+        }
+    }
+
+    // Hàm tạo ô thêm sản phẩm
+    function renderAddProductCard() {
+        const addCard = document.createElement("div");
+        addCard.className = "add-product-card";
+
+        addCard.innerHTML = `
+            <div class="add-product-content">
+                <span class="plus-icon">+</span>
+                <h3>Thêm sản phẩm</h3>
+                <p>Thêm sản phẩm mới vào danh sách</p>
+            </div>
+        `;
+
+        addCard.addEventListener("click", addProduct);
+
+        allProductsList.appendChild(addCard);
     }
 
     // Hàm lọc sản phẩm theo tìm kiếm và danh mục
@@ -161,10 +228,146 @@ if (allProductsList) {
         renderAllProducts(filteredProducts);
     }
 
+    // Hàm thêm sản phẩm mới
+    function addProduct() {
+        const name = prompt("Nhập tên sản phẩm:");
+        if (!name) return;
+
+        const price = Number(prompt("Nhập giá sản phẩm:"));
+        if (!price) {
+            alert("Giá sản phẩm không hợp lệ.");
+            return;
+        }
+
+        const category = prompt("Nhập danh mục sản phẩm:", "Sen đá");
+        if (!category) return;
+
+        const origin = prompt("Nhập xuất xứ:", "Đà Lạt");
+        if (!origin) return;
+
+        const imageName = prompt("Nhập tên file ảnh:", "ten-anh-san-pham.jpg");
+        if (!imageName) return;
+
+        const description = prompt("Nhập mô tả ngắn:");
+        if (!description) return;
+
+        const detail = prompt("Nhập thông tin chi tiết:");
+        if (!detail) return;
+
+        const care = prompt("Nhập hướng dẫn chăm sóc:");
+        if (!care) return;
+
+        const newId = products.length > 0
+            ? Math.max(...products.map(function(product) {
+                return product.id;
+            })) + 1
+            : 1;
+
+        const newProduct = {
+            id: newId,
+            name: name,
+            price: price,
+            category: category,
+            origin: origin,
+            image: "assets/images/" + imageName,
+            description: description,
+            detail: detail,
+            care: care,
+            isBestSeller: false
+        };
+
+        products.push(newProduct);
+
+        renderCategoryOptions();
+        filterProducts();
+
+        alert("Đã thêm sản phẩm mới.");
+    }
+
+    // Hàm sửa sản phẩm
+    function editProduct(productId) {
+        const product = products.find(function(item) {
+            return item.id === productId;
+        });
+
+        if (!product) return;
+
+        const newName = prompt("Sửa tên sản phẩm:", product.name);
+        if (newName === null) return;
+
+        const newPrice = prompt("Sửa giá sản phẩm:", product.price);
+        if (newPrice === null) return;
+
+        const newCategory = prompt("Sửa danh mục:", product.category);
+        if (newCategory === null) return;
+
+        const newOrigin = prompt("Sửa xuất xứ:", product.origin);
+        if (newOrigin === null) return;
+
+        const newDescription = prompt("Sửa mô tả ngắn:", product.description);
+        if (newDescription === null) return;
+
+        const newDetail = prompt("Sửa thông tin chi tiết:", product.detail);
+        if (newDetail === null) return;
+
+        const newCare = prompt("Sửa hướng dẫn chăm sóc:", product.care);
+        if (newCare === null) return;
+
+        product.name = newName;
+        product.price = Number(newPrice);
+        product.category = newCategory;
+        product.origin = newOrigin;
+        product.description = newDescription;
+        product.detail = newDetail;
+        product.care = newCare;
+
+        renderCategoryOptions();
+        filterProducts();
+
+        alert("Đã cập nhật sản phẩm.");
+    }
+
+    // Hàm xóa sản phẩm
+    function deleteProduct(productId) {
+        const confirmDelete = confirm("Bạn có chắc muốn xóa sản phẩm này không?");
+
+        if (!confirmDelete) return;
+
+        const index = products.findIndex(function(product) {
+            return product.id === productId;
+        });
+
+        if (index !== -1) {
+            products.splice(index, 1);
+        }
+
+        renderCategoryOptions();
+        filterProducts();
+
+        alert("Đã xóa sản phẩm.");
+    }
+
+    // Bật / tắt chế độ chỉnh sửa
+    if (editToggleBtn) {
+        editToggleBtn.addEventListener("click", function() {
+            isEditMode = !isEditMode;
+
+            if (isEditMode) {
+                editToggleBtn.textContent = "Tắt chỉnh sửa";
+                editToggleBtn.classList.add("active");
+            } else {
+                editToggleBtn.textContent = "Chỉnh sửa";
+                editToggleBtn.classList.remove("active");
+            }
+
+            filterProducts();
+        });
+    }
+
     searchInput.addEventListener("input", filterProducts);
     categoryFilter.addEventListener("change", filterProducts);
 
-    // Hiển thị toàn bộ sản phẩm ban đầu
+    renderCategoryOptions();
     renderAllProducts(products);
 }
 // ===============================
@@ -277,3 +480,39 @@ if (contactForm) {
         contactForm.reset();
     });
 }
+// ===============================
+// HIỆU ỨNG TẢI TRANG VÀ CHUYỂN TRANG
+// ===============================
+
+// Khi trang tải xong thì thêm class để hiện trang mượt
+window.addEventListener("load", function () {
+    document.body.classList.add("page-loaded");
+});
+
+// Tạo hiệu ứng trước khi chuyển sang trang khác
+const pageLinks = document.querySelectorAll("a");
+
+pageLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+        const href = link.getAttribute("href");
+
+        // Bỏ qua nếu link rỗng, link #, link ngoài website, hoặc mở tab mới
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            link.target === "_blank"
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        document.body.classList.remove("page-loaded");
+        document.body.classList.add("page-exit");
+
+        setTimeout(function () {
+            window.location.href = href;
+        }, 350);
+    });
+});

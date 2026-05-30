@@ -279,11 +279,112 @@ body {
     background-color: #ffffff;
     border-radius: 16px;
 }
-
 /* ===============================
-   FOOTER
+   NÚT CHỈNH SỬA SẢN PHẨM
 ================================ */
 
+.edit-control {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.edit-toggle-btn {
+    border: none;
+    outline: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-toggle-btn:hover {
+    background-color: #1b5e20;
+    transform: translateY(-3px);
+}
+
+.edit-toggle-btn.active {
+    background-color: #d35400;
+}
+
+/* Nút sửa, xóa trong từng sản phẩm */
+.product-edit-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.edit-product-btn,
+.delete-product-btn {
+    border: none;
+    outline: none;
+    padding: 9px 16px;
+    border-radius: 22px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-product-btn {
+    background-color: #f39c12;
+}
+
+.edit-product-btn:hover {
+    background-color: #d68910;
+}
+
+.delete-product-btn {
+    background-color: #c0392b;
+}
+
+.delete-product-btn:hover {
+    background-color: #922b21;
+}
+
+/* Ô thêm sản phẩm */
+.add-product-card {
+    background-color: #ffffff;
+    border: 2px dashed #2e7d32;
+    border-radius: 18px;
+    min-height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-product-card:hover {
+    background-color: #e8f5e9;
+    transform: translateY(-6px);
+}
+
+.add-product-content {
+    text-align: center;
+    color: #2e7d32;
+}
+
+.add-product-content .plus-icon {
+    font-size: 54px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.add-product-content h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.add-product-content p {
+    color: #555;
+    font-size: 14px;
+}
 /* ===============================
    FOOTER
 ================================ */
@@ -401,5 +502,51 @@ body {
 
     .product-list {
         grid-template-columns: 1fr;
+    }
+}
+/* ===============================
+   HIỆU ỨNG TẢI TRANG VÀ CHUYỂN TRANG
+================================ */
+
+body {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Hiệu ứng xuất hiện nhẹ cho các khối chính */
+.hero,
+.page-banner,
+.about-banner,
+.contact-banner,
+.detail-section,
+.all-products-section,
+.about-section,
+.contact-section,
+.bestseller-section,
+.reason-section,
+.footer {
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
