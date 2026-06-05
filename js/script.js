@@ -1,4 +1,3 @@
-// File main.js xử lý DOM cho trang chủ và trang sản phẩm
 
 // Hàm định dạng giá tiền
 function formatPrice(price) {
