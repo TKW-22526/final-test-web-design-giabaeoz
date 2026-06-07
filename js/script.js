@@ -504,7 +504,118 @@ if (allProductsList) {
     renderCategoryOptions();
     renderAllProducts(products);
 }
+// ===============================
+// ĐĂNG NHẬP MÔ PHỎNG
+// ===============================
 
+const AUTH_STORAGE_KEY = "gb_garden_login";
+
+function isLoggedIn() {
+  return localStorage.getItem(AUTH_STORAGE_KEY) === "true";
+}
+
+function loginUser() {
+  localStorage.setItem(AUTH_STORAGE_KEY, "true");
+}
+
+function logoutUser() {
+  localStorage.removeItem(AUTH_STORAGE_KEY);
+}
+
+function updateAuthButton() {
+  const authButton = document.getElementById("auth-btn");
+
+  if (!authButton) return;
+
+  if (isLoggedIn()) {
+    authButton.textContent = "Đăng xuất";
+  } else {
+    authButton.textContent = "Đăng nhập";
+  }
+}
+
+function toggleLoginDropdown() {
+  const loginDropdown = document.getElementById("login-dropdown");
+
+  if (!loginDropdown) return;
+
+  loginDropdown.classList.toggle("show");
+}
+
+function closeLoginDropdown() {
+  const loginDropdown = document.getElementById("login-dropdown");
+
+  if (!loginDropdown) return;
+
+  loginDropdown.classList.remove("show");
+}
+
+function initLogin() {
+  const authButton = document.getElementById("auth-btn");
+  const loginForm = document.getElementById("login-form");
+  const loginDropdown = document.getElementById("login-dropdown");
+
+  updateAuthButton();
+
+  if (authButton) {
+    authButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      if (isLoggedIn()) {
+        const confirmLogout = confirm("Bạn có muốn đăng xuất không?");
+
+        if (confirmLogout) {
+          logoutUser();
+          updateAuthButton();
+          alert("Đã đăng xuất.");
+        }
+
+        return;
+      }
+
+      toggleLoginDropdown();
+    });
+  }
+
+  if (loginDropdown) {
+    loginDropdown.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  }
+
+  document.addEventListener("click", function () {
+    closeLoginDropdown();
+  });
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("login-username").value.trim();
+      const password = document.getElementById("login-password").value.trim();
+      const loginMessage = document.getElementById("login-message");
+
+      if (username === "" || password === "") {
+        loginMessage.textContent = "Vui lòng nhập đầy đủ thông tin.";
+        loginMessage.style.color = "var(--orange)";
+        return;
+      }
+
+      loginUser();
+
+      loginMessage.textContent = "Đăng nhập thành công.";
+      loginMessage.style.color = "var(--primary)";
+
+      updateAuthButton();
+
+      setTimeout(function () {
+        closeLoginDropdown();
+      }, 700);
+    });
+  }
+}
+
+initLogin();
 // ===============================
 // 3. HIỂN THỊ CHI TIẾT SẢN PHẨM
 // ===============================

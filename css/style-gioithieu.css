@@ -39,10 +39,6 @@ body {
    HEADER
 ================================ */
 
-/* ===============================
-   HEADER
-================================ */
-
 .header {
     width: 100%;
     padding: 12px 8%;
@@ -128,7 +124,116 @@ body {
     border-color: #ffffff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
 }
+/* ===============================
+   FORM ĐĂNG NHẬP NHỎ TRÊN HEADER
+================================ */
 
+.login-wrapper {
+  position: relative;
+}
+
+.login-toggle-btn {
+  border: none;
+  outline: none;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  padding: 9px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Be Vietnam Pro', Arial, sans-serif;
+  cursor: pointer;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.login-toggle-btn:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.login-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 260px;
+  background-color: var(--white);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  display: none;
+  z-index: 9999;
+  border: 1px solid #e3eadf;
+}
+
+.login-dropdown.show {
+  display: block;
+}
+
+.login-dropdown h3 {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.login-dropdown input {
+  width: 100%;
+  border: 1px solid #dce8dd;
+  outline: none;
+  border-radius: 25px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', Arial, sans-serif;
+  color: var(--text);
+}
+
+.login-dropdown input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47, 107, 63, 0.12);
+}
+
+.login-dropdown button[type="submit"] {
+  width: 100%;
+  border: none;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Be Vietnam Pro', Arial, sans-serif;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login-dropdown button[type="submit"]:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+#login-message {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .login-dropdown {
+    right: -20px;
+    width: 240px;
+  }
+
+  .login-toggle-btn {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
 /* ===============================
    BANNER GIỚI THIỆU
 ================================ */
