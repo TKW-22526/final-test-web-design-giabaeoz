@@ -708,3 +708,123 @@ body {
         padding: 7px 11px;
     }
 }
+/* ===============================
+   FORM THÊM / SỬA SẢN PHẨM
+================================ */
+
+.product-form-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.product-form-modal.show {
+    display: flex;
+}
+
+.product-form-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+}
+
+.product-form-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2f6b3f;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.product-form-box .form-group {
+    margin-bottom: 14px;
+}
+
+.product-form-box label {
+    display: block;
+    margin-bottom: 6px;
+    color: #2f3d2f;
+    font-weight: 600;
+}
+
+.product-form-box input,
+.product-form-box textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cfd8cf;
+    border-radius: 10px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 15px;
+    outline: none;
+}
+
+.product-form-box input:focus,
+.product-form-box textarea:focus {
+    border-color: #2f6b3f;
+    box-shadow: 0 0 0 3px rgba(47, 107, 63, 0.12);
+}
+
+.image-note {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #666666;
+}
+
+.product-image-preview {
+    display: none;
+    width: 140px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #d7e0d7;
+}
+
+.product-image-preview.show {
+    display: block;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.save-product-btn,
+.cancel-product-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-product-btn {
+    background: #2f6b3f;
+    color: #ffffff;
+}
+
+.save-product-btn:hover {
+    background: #255832;
+}
+
+.cancel-product-btn {
+    background: #e0e0e0;
+    color: #333333;
+}
+
+.cancel-product-btn:hover {
+    background: #cfcfcf;
+}

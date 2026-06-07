@@ -60,11 +60,67 @@
     </section>
 
     <div class="edit-control">
-        <button id="edit-toggle-btn" class="edit-toggle-btn btn btn-success rounded-pill px-4 py-2 shadow-sm    ">
+        <button id="edit-toggle-btn" class="edit-toggle-btn btn btn-success rounded-pill px-4 py-2 shadow-sm">
             Chỉnh sửa
         </button>
     </div>
 
+    <!-- Biểu mẫu thêm sản phẩm -->
+    <!-- Biểu mẫu thêm / sửa sản phẩm -->
+<div id="product-form-modal" class="product-form-modal">
+    <div class="product-form-box">
+        <h2 id="product-form-title">Thêm sản phẩm mới</h2>
+
+        <form id="product-form">
+            <div class="form-group">
+                <label for="product-name">Tên sản phẩm</label>
+                <input type="text" id="product-name" placeholder="Nhập tên sản phẩm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-price">Giá sản phẩm</label>
+                <input type="number" id="product-price" placeholder="Nhập giá sản phẩm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-category">Danh mục</label>
+                <input type="text" id="product-category" placeholder="Ví dụ: Sen đá" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-origin">Xuất xứ</label>
+                <input type="text" id="product-origin" placeholder="Ví dụ: Đà Lạt" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-image">Hình ảnh sản phẩm</label>
+                <input type="file" id="product-image" accept="image/*">
+                <p class="image-note">Chọn ảnh từ máy tính để hiển thị cho sản phẩm.</p>
+                <img id="product-image-preview" class="product-image-preview" src="" alt="Xem trước ảnh">
+            </div>
+
+            <div class="form-group">
+                <label for="product-description">Mô tả ngắn</label>
+                <textarea id="product-description" rows="2" placeholder="Nhập mô tả ngắn" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="product-detail-input">Thông tin chi tiết</label>
+                <textarea id="product-detail-input" rows="3" placeholder="Nhập thông tin chi tiết" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="product-care">Hướng dẫn chăm sóc</label>
+                <textarea id="product-care" rows="3" placeholder="Nhập hướng dẫn chăm sóc" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-product-btn">Lưu sản phẩm</button>
+                <button type="button" id="cancel-product-form" class="cancel-product-btn">Hủy</button>
+            </div>
+        </form>
+    </div>
+</div>
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -76,21 +132,21 @@
             </div>
 
             <div class="footer-box">
-                <h3>WEB DESIGNER</h3>
+                <h3>SV THỰC HIỆN</h3>
                 <p>Ngô Dương Gia Bảo</p>
                 <p>Lớp: DA24TTB</p>
                 <p>MSSV: 110124008</p>
             </div>
 
             <div class="footer-box">
-                <h3>INFO</h3>
+                <h3>THÔNG TIN LIÊN HỆ</h3>
                 <p>SĐT: 0788919073</p>
                 <p>Email: ngobaokakaka@gmail.com</p>
                 <p>Địa chỉ: Vĩnh Long</p>
             </div>
 
             <div class="footer-box">
-                <h3>SOCIAL</h3>
+                <h3>MẠNG XÃ HỘI</h3>
 
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
